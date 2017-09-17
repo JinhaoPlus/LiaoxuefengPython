@@ -18,8 +18,8 @@ h.hello()
 print(type(Hello))
 print(type(h))
 
+print('###########################################################################')
 
-###########################################################################
 
 class ListMetaclass(type):
     def __new__(cls, name, bases, attrs):
@@ -31,13 +31,22 @@ class MyList(list, metaclass=ListMetaclass):
     pass
 
 
+class YourList(list):
+    def add(self, val):
+        self.append(val)
+
+
 L = MyList()
 print(L)
 L.add(1)
 print(L)
 
+LL = YourList()
+LL.add(1)
+print(LL)
 
-###########################################################################
+print('###########################################################################')
+
 
 class Field(object):
     def __init__(self, name, column_type):
@@ -107,10 +116,10 @@ class Model(dict, metaclass=ModelMetaclass):
 
 class User(Model):
     # 定义类的属性到列的映射：
-    id = IntegerField('id')
-    name = StringField('username')
-    email = StringField('email')
-    password = StringField('password')
+    id = IntegerField('ID')
+    name = StringField('USER_NAME')
+    email = StringField('USER_EMAIL')
+    password = StringField('USER_PASSWORD')
 
 
 # 创建一个实例：
